@@ -1,20 +1,16 @@
 /* In this repo your job is to write functions to make each function call work properly.
 Below is a sample problem 
-
   //code here for sayHi
-
    sayHi('Hi Katie', function(thingToSay){
       alert(thingToSay);
    });
    
-
 and what you should write is the sayHi function that makes the code above work, 
     
     
    var sayHi = function(str, cb){
     cb(str);
    }
-
    sayHi('Hi Katie', function(thingToSay){
       alert(thingToSay); //should alert ('Hi Katie')'
    });
@@ -25,7 +21,9 @@ and what you should write is the sayHi function that makes the code above work,
 
 
   //Code Here for first
-  
+function first(names, firstName){
+  return firstName(names.shift());
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -38,6 +36,9 @@ first(names, function(firstName){
 
 
 
+function last(names, lastName){
+    return lastName(names.pop());
+  }
 
   //Code Here for last
 
@@ -55,6 +56,9 @@ last(names, function(lastName){
 
 
 
+function multiply(num1, num2, answer){
+  return answer(num1 * num2);
+}
 
   //Code Here for multiply
 
@@ -67,9 +71,15 @@ multiply(4, 3, function(answer){
 
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
-
-
-
+function contains(names, boyName, callback) {
+  var result = false;
+  for (var i = 0; i < names.length; i++){
+    if (names[i] === boyName){
+      result = true;
+      }
+  }
+  callback(result);
+}
 
 
   //Code Here for contains
@@ -88,9 +98,16 @@ contains(names, 'Colt', function(result){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
-
-
+  function uniq(arr, callBack) {
+      var storeArray = [];
+      arr.forEach(function(name) {
+        if (storeArray.indexOf(name) === -1) {
+          storeArray.push(name);
+        }
+      })
+    
+      callBack(storeArray);
+  };
     //Code Here for uniq
 
 uniq(names, function(uniqArr){
